@@ -4,7 +4,7 @@ import Colors from 'cryptotracker/src/res/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
-const CoinsItem = ({ props, onPress }) => {
+const CoinsItem = ({ item, onPress }) => {
 
     const getImgArrow = (pct_change) => {
         let icon = null;
@@ -21,21 +21,21 @@ const CoinsItem = ({ props, onPress }) => {
     return (
         <Pressable onPress={onPress} style={styles.container}>
             <View style={styles.row}>
-                <Text style={styles.symbol}>{props.item.symbol}</Text>
-                <Text style={styles.text}>{props.item.name}</Text>
+                <Text style={styles.symbol}>{item.symbol}</Text>
+                <Text style={styles.text}>{item.name}</Text>
             </View>
 
             <View style={styles.row}>
-                <Text style={styles.priceText}>$ {props.item.price_usd}</Text>
+                <Text style={styles.priceText}>$ {item.price_usd}</Text>
                 <Text
                     style={{
-                        color: props.item.percent_change_1h > 0 ? Colors.green : Colors.red,
+                        color: item.percent_change_1h > 0 ? Colors.green : Colors.red,
                         ...styles.percentText
                     }}
                 >
-                    {props.item.percent_change_1h} %
+                    {item.percent_change_1h} %
                 </Text>
-                { getImgArrow( props.item.percent_change_1h ) }
+                { getImgArrow( item.percent_change_1h ) }
             </View>
         </Pressable>
     );
