@@ -5,6 +5,7 @@ import Http from 'cryptotracker/src/libs/http.js';
 
 // Components
 import CoinsItem from './CoinsItem';
+import Colors from 'cryptotracker/src/res/colors';
 
 
 const CoinsScreen = (props) => {
@@ -48,7 +49,7 @@ const CoinsScreen = (props) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#fff",
+        backgroundColor: Colors.background,
     },
     titleText: {
         color: "#fff",
