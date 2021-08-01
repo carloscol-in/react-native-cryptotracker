@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Image, Text, SectionList, FlatList, StyleSheet } from 'react-native';
 import Colors from 'cryptotracker/src/res/colors';
 import Http from 'cryptotracker/src/libs/http';
+import CoinMarketDetail from './CoinMarketDetail';
 
 
 class CoinDetailScreen extends Component {
