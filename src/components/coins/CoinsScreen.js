@@ -6,11 +6,14 @@ import Http from 'cryptotracker/src/libs/http.js';
 // Components
 import CoinsItem from './CoinsItem';
 import Colors from 'cryptotracker/src/res/colors';
+import CoinsSearch from './CoinsSearch';
 
 
 const CoinsScreen = (props) => {
 
     const [coins, setCoins] = useState([]);
+    
+    const [allCoins, setAllCoins] = useState([]);
 
     const [loading, setLoading] = useState(false);
 
@@ -18,6 +21,7 @@ const CoinsScreen = (props) => {
         setLoading(true);
         let res = await Http.instance.get(`https://api.coinlore.net/api/tickers/`);
         setCoins(res.data);
+        setAllCoins(res.data);
         setLoading(false);
     }
 
@@ -28,9 +32,19 @@ const CoinsScreen = (props) => {
     const handlePress = (coin) => {
         props.navigation.navigate('CoinDetail', { coin });
     }
+    
+    const handleSearch = (query) => {
+        const coinsFiltered = allCoins.filter((coin) => {
+            return coin.name.toLowerCase().includes(query.toLowerCase()) ||
+             coin.symbol.toLowerCase().includes(query.toLowerCase());
+        });
+
+        setCoins(coinsFiltered);
+    }
 
     return(
         <View style={styles.container}>
+            <CoinsSearch onChange={handleSearch} />
             {
                 loading ?
                     <ActivityIndicator
