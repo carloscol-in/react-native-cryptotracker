@@ -85,12 +85,13 @@ class CoinDetailScreen extends Component {
                     }
                 />
 
-                <Text>Markets</Text>
+                <Text style={styles.marketsTitle}>Markets</Text>
 
                 <FlatList
+                    style={styles.list}
                     horizontal={true}
                     data={markets}
-                    renderItem={({ item }) => <Text>{item.name}</Text>}
+                    renderItem={({ item }) => <CoinMarketDetail item={item} />}
                 />
             </View>
         );
@@ -134,6 +135,15 @@ const styles = StyleSheet.create({
         color: Colors.text,
         fontSize: 14,
         fontWeight: "bold",
+    },
+    list: {
+        maxHeight: 100,
+        paddingLeft: 16,
+    },
+    marketsTitle: {
+        color: Colors.text,
+        fontSize: 16,
+        marginBottom: 16,
     }
 });
 
