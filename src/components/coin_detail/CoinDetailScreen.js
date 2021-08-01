@@ -144,6 +144,8 @@ const styles = StyleSheet.create({
         color: Colors.text,
         fontSize: 16,
         marginBottom: 16,
+        marginLeft: 16,
+        fontWeight: "bold",
     }
 });
 
