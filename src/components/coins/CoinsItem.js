@@ -18,9 +18,7 @@ const CoinsItem = ({ item, onPress }) => {
         return icon;
     }
 
-    useEffect(() => {
-        console.log(navigation);
-    }, []);
+    useEffect(() => {}, []);
     
     return (
         <Pressable onPress={onPress} style={styles.container}>
