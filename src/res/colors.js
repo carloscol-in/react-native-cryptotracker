@@ -8,7 +8,10 @@ const Colors = {
 
     // other colors
     green: "#7af065",
+    darkGreen: "#369925",
     red: "#f06565",
+    darkRed: "#c22323",
+    dark: "#0e0e0e",
 };
 // const Colors = {
 //     backgroundAccent: "#363333",
