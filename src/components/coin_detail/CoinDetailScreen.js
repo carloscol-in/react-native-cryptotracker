@@ -3,6 +3,7 @@ import { View, Image, Text, SectionList, FlatList, StyleSheet } from 'react-nati
 import Colors from 'cryptotracker/src/res/colors';
 import Http from 'cryptotracker/src/libs/http';
 import CoinMarketDetail from './CoinMarketDetail';
+import { faClosedCaptioning } from '@fortawesome/free-solid-svg-icons';
 
 
 class CoinDetailScreen extends Component {
@@ -23,7 +24,10 @@ class CoinDetailScreen extends Component {
     }
 
     getSymbolIcon = (name) => {
-        return `https://c1.coinlore.com/img/25x25/${name}.png`;
+        if (name) {
+            console.log(name);
+            return `https://c1.coinlore.com/img/25x25/${name}.png`;
+        }
     }
 
     getSections = (coin) => {
@@ -91,6 +95,7 @@ class CoinDetailScreen extends Component {
                     style={styles.list}
                     horizontal={true}
                     data={markets}
+                    keyExtractor={(item, index) => `${item.name}-${item.base}-${index}`}
                     renderItem={({ item }) => <CoinMarketDetail item={item} />}
                 />
             </View>
@@ -129,12 +134,14 @@ const styles = StyleSheet.create({
     },
     itemText: {
         color: Colors.text,
-        fontSize: 14
+        fontSize: 14,
+        marginLeft: 8,
     },
     sectionText: {
         color: Colors.text,
         fontSize: 14,
         fontWeight: "bold",
+        marginLeft: 8,
     },
     list: {
         maxHeight: 100,
@@ -143,6 +150,7 @@ const styles = StyleSheet.create({
     marketsTitle: {
         color: Colors.text,
         fontSize: 16,
+        marginTop: 24,
         marginBottom: 16,
         marginLeft: 16,
         fontWeight: "bold",

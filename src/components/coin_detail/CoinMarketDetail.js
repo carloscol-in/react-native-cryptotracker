@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
 import Colors from 'cryptotracker/src/res/colors';
 
 const CoinMarketDetail = ({item}) => {
@@ -14,11 +14,14 @@ const CoinMarketDetail = ({item}) => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'rgba(0, 0, 0, 0.2)',
-        borderColor: Colors.backgroundAccent,
+        borderColor: Colors.primaryVariant,
         borderWidth: 1,
         padding: 16,
+        paddingHorizontal: 24,
+        borderRadius: 10,
         marginRight: 16,
         alignItems: "center",
+        justifyContent: "center",
     },
     nameText: {
         color: Colors.text,
@@ -26,6 +29,10 @@ const styles = StyleSheet.create({
     },
     priceText: {
         color: Colors.text,
+    },
+    iconImg: {
+        width: 25,
+        height: 25,
     }
 })
 
