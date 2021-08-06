@@ -3,7 +3,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 class Storage {
 
     // create singleton
-    static instance = Storage();
+    static instance = new Storage();
 
     store = async (key, value) => {
         try {
@@ -76,3 +76,5 @@ class Storage {
     }
 
 }
+
+export default Storage;
