@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import Colors from 'cryptotracker/src/res/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
@@ -18,6 +18,10 @@ const CoinsItem = ({ item, onPress }) => {
         return icon;
     }
 
+    useEffect(() => {
+        console.log(navigation);
+    }, []);
+    
     return (
         <Pressable onPress={onPress} style={styles.container}>
             <View style={styles.row}>
